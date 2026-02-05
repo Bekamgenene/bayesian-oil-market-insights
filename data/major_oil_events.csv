@@ -1,0 +1,17 @@
+Date,Event_Name,Category,Description,Expected_Impact
+2014-11-27,OPEC Maintains Production,OPEC Policy,OPEC decides to maintain production target of 30 million barrels/day despite falling prices to compete with US shale,Downward pressure on prices
+2016-11-30,OPEC Production Cut Agreement,OPEC Policy,OPEC agrees to cut production by 1.2 million barrels/day - first cut in 8 years,Upward pressure on prices
+2016-12-10,OPEC+ Deal Formalized,OPEC Policy,Russia and 10 other non-OPEC countries join production cuts totaling 1.8 million barrels/day,Upward pressure on prices
+2018-05-08,US Withdraws from Iran Nuclear Deal,Economic Sanctions,Trump administration withdraws from JCPOA and imposes sanctions on Iranian oil exports,Upward pressure on prices
+2018-11-05,Iran Sanctions Waivers,Economic Sanctions,US grants temporary waivers to 8 countries to continue importing Iranian oil,Downward pressure
+2019-09-14,Saudi Aramco Attacks,Geopolitical Conflict,Drone attacks on Saudi Aramco facilities remove 5.7 million barrels/day of production,Sharp upward spike
+2020-03-06,OPEC+ Deal Collapses,OPEC Policy,Russia refuses to deepen production cuts leading to breakdown of OPEC+ agreement,Sharp downward pressure
+2020-03-09,Saudi-Russia Price War,Geopolitical Conflict,Saudi Arabia announces production increase and discounts after Russia refuses cuts,Historic crash
+2020-04-12,OPEC+ Historic Production Cut,OPEC Policy,OPEC+ agrees to record 9.7 million barrel/day production cut due to COVID-19,Upward pressure
+2020-04-20,WTI Negative Prices,Market Volatility,WTI May futures contract goes negative (-$37) due to storage constraints and COVID demand collapse,Extreme volatility
+2020-05-01,Libya Production Halt,Geopolitical Conflict,Libyan National Army blockades oil facilities reducing output by over 1 million barrels/day,Upward pressure
+2021-03-04,OPEC+ Maintains Discipline,OPEC Policy,OPEC+ keeps production cuts in place as demand slowly recovers from COVID,Gradual upward pressure
+2021-08-01,COVID Delta Variant,Market Volatility,Delta variant surge raises concerns about global demand recovery,Downward pressure and volatility
+2021-11-23,Strategic Reserve Release,Government Policy,US announces coordinated strategic petroleum reserve release with other countries,Downward pressure
+2022-02-24,Russia-Ukraine Invasion,Geopolitical Conflict,Russia invades Ukraine triggering fears of major supply disruptions and Western sanctions,Sharp upward spike to $130+
+2022-03-31,IEA Emergency Release,Government Policy,IEA announces historic 120 million barrel emergency oil release to calm markets,Downward pressure
