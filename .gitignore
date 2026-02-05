@@ -73,11 +73,6 @@ models/
 outputs/
 results/
 
-# Reports (generated figures)
-reports/figures/*.png
-reports/figures/*.jpg
-reports/figures/*.pdf
-!reports/figures/.gitkeep
 
 # Documentation build
 docs/_build/
