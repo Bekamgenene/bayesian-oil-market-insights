@@ -65,71 +65,6 @@ bayesian-oil-market-insights/
 └── requirements.txt              # Python dependencies
 ```
 
----
-
-## ✅ Task 1: Completed Deliverables (Interim Submission)
-
-### 1. Analysis Workflow Document (1-2 pages) ✓
-
-**File:** [Task1_Analysis_Plan.md](Task1_Analysis_Plan.md)
-
-**Includes:**
-
-- Complete 6-step data analysis workflow with EDA findings
-- Change point model explanation and Bayesian approach justification
-- Time series properties analysis (trend, stationarity, volatility)
-- Expected outputs and model limitations
-- **Critical discussion on correlation vs. causation**
-- Assumptions, limitations, and communication strategy
-
-### 2. Event Dataset (CSV) ✓
-
-**File:** [data/major_oil_events.csv](data/major_oil_events.csv)
-
-**Contains:**
-
-- **16 major events** (2014-2022) covering:
-  - OPEC Policy Decisions (6 events)
-  - Geopolitical Conflicts (5 events)
-  - Economic Sanctions (2 events)
-  - Market Volatility (2 events)
-  - Government Policy (2 events)
-
-**Key Events:**
-
-- 2014 OPEC production decision
-- 2020 Saudi-Russia price war & COVID crash
-- 2019 Saudi Aramco attacks
-- 2022 Russia-Ukraine invasion
-- US-Iran sanctions
-
-### 3. Comprehensive EDA Notebook ✓
-
-**File:** [notebooks/task1_exploratory_data_analysis.ipynb](notebooks/task1_exploratory_data_analysis.ipynb)
-
-**Analysis Includes:**
-
-- ✓ Data loading and preparation (9,013 daily prices)
-- ✓ Visual inspection with event annotations
-- ✓ Trend analysis (30/90/365-day moving averages)
-- ✓ **Stationarity testing (ADF):** Raw prices NON-STATIONARY, Log returns STATIONARY
-- ✓ **Volatility analysis:** Strong volatility clustering detected
-- ✓ **Distributional analysis:** Heavy tails confirmed (high kurtosis)
-- ✓ Autocorrelation analysis (ACF/PACF)
-- ✓ Focused analysis on 2014-2022 period
-
-**Key Findings:**
-
-- Price range: $9.10 - $143.95/barrel
-- Multiple regime shifts identified
-- Log returns suitable for Bayesian modeling
-- Must model both mean (μ) and variance (σ) changes
-
-### Summary Document
-
-**File:** [TASK1_INTERIM_SUBMISSION.md](TASK1_INTERIM_SUBMISSION.md) - Complete overview of all Task 1 deliverables
-
----
 
 ## 🔬 Methodology
 
@@ -267,18 +202,6 @@ _This section will be populated after completing Task 2 analysis_
 
 - TBD
 
----
-
-## 📝 Documentation
-
-- **Task 1 Analysis Plan**: [Task1_Analysis_Plan.md](Task1_Analysis_Plan.md)
-  - Analysis workflow (6 phases)
-  - Change point model explanation
-  - Assumptions and limitations
-  - Communication strategy
-  - Event dataset overview
-
----
 
 ## 🎓 Learning Outcomes
 
@@ -384,3 +307,4 @@ This is an educational project for 10 Academy's AI Mastery program. Contribution
 ---
 
 _Last Updated: February 5, 2026_
+
