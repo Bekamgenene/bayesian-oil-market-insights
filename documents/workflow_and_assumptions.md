@@ -8,11 +8,13 @@ This brief (1–2 page) document summarizes the analysis workflow used in this p
 
 1. Data ingestion
    - Collect raw price and event data (e.g., `BrentOilPrices.csv`, `major_oil_events.csv`).
+   - Load structured event dataset from `data/structured_events.csv` containing 15 key geopolitical, OPEC, and macroeconomic events (2014–2022) with dates, types, descriptions, and expected impacts.
    - Apply deterministic cleaning and normalization in `src/data_processing.py` to create a stable processed dataset used for modeling.
 
 2. Event tagging & enrichment
-   - Map calendar events, supply disruptions, and policy announcements to price time series.
+   - Map calendar events from `structured_events.csv` (OPEC decisions, geopolitical shocks, economic disruptions) to price time series.
    - Create binary/annotated event indicators and rolling aggregates used in feature engineering.
+   - Generate event window indicators (±7, ±14, ±30 days) for impact assessment.
 
 3. Model specification
    - Use Bayesian change-point models to detect structural breaks and regime shifts in price series.
@@ -48,6 +50,7 @@ Be explicit about these limitations whenever presenting numerical effect sizes o
 ## Data handling & reproducibility practices
 
 - All raw inputs remain in `data/` and processed outputs are written to `data/processed_*.csv` (see `src/data_processing.py`).
+- Structured event dataset: `data/structured_events.csv` contains 15 curated events with Date, Event_Type (OPEC_Decision, Geopolitical, Economic_Shock), Description, and Expected_Impact columns. This dataset is version-controlled and serves as the canonical event reference for all analyses.
 - Version inputs (timestamps or data hashes) and record the processing pipeline steps in a short changelog inside `documents/`.
 - Save model code, priors, random seeds, and fitted objects to a `models/` folder (or commit to the repo if small) to allow exact reproduction.
 
