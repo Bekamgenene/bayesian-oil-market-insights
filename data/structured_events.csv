@@ -1,0 +1,16 @@
+Date,Event_Type,Description,Expected_Impact
+2014-11-27,OPEC_Decision,OPEC decides not to cut production despite falling prices; market oversupply continues,Supply_Negative
+2015-01-15,Economic_Shock,Continued global oversupply signals and China economic growth concerns,Demand_Negative
+2016-11-30,OPEC_Decision,OPEC agrees to cut production by 1.2M bpd (first cut since 2008),Supply_Positive
+2018-05-08,Geopolitical,U.S. withdraws from Iran nuclear deal; reimposition of sanctions creates supply risk,Supply_Positive
+2019-09-14,Geopolitical,Attacks on Saudi Aramco facilities at Abqaiq and Khurais; 5.7M bpd offline,Supply_Positive
+2020-03-06,OPEC_Decision,Russia-Saudi price war begins; OPEC+ fails to agree on production cuts,Supply_Negative
+2020-03-11,Economic_Shock,COVID-19 declared pandemic; global demand collapse begins,Demand_Negative
+2020-04-12,OPEC_Decision,OPEC+ agrees to historic production cuts of 9.7M bpd,Supply_Positive
+2020-04-20,Economic_Shock,WTI futures contract goes negative; storage capacity concerns,Demand_Negative
+2021-07-01,Economic_Shock,Demand recovery amid Delta variant concerns; OPEC+ supply adjustments,Mixed
+2021-11-04,OPEC_Decision,OPEC+ maintains gradual production increase despite demand recovery,Supply_Neutral
+2022-02-24,Geopolitical,Russia invades Ukraine; major supply disruption risk to global markets,Supply_Positive
+2022-03-08,Geopolitical,U.S. and EU ban Russian oil imports; rapid escalation of sanctions,Supply_Positive
+2022-06-02,OPEC_Decision,OPEC+ accelerates production increases to offset Russian supply loss,Supply_Negative
+2022-10-05,OPEC_Decision,OPEC+ announces production cut of 2M bpd despite demand concerns,Supply_Positive
