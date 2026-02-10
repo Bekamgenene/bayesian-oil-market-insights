@@ -1,103 +1,73 @@
 # Bayesian Oil Market Insights
 
-### Change Point Analysis and Statistical Modeling of Brent Oil Prices
+**Bayesian Change Point Detection for Brent Oil Price Analysis (2014-2022)**
 
-![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
-![PyMC](https://img.shields.io/badge/PyMC-5.0+-orange.svg)
+![Python](https://img.shields.io/badge/python-3.11-blue.svg)
+![PyMC](https://img.shields.io/badge/PyMC-5.27-orange.svg)
+![Streamlit](https://img.shields.io/badge/Streamlit-1.28-red.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 
-## 🎯 Project Overview
+## 🎯 Overview
 
-This project analyzes how major political and economic events affect Brent oil prices using **Bayesian Change Point Detection**. As a data scientist at **Birhan Energies**, we aim to provide data-driven insights to investors, policymakers, and energy companies navigating the complex global oil market.
+Probabilistic analysis of Brent oil prices using Bayesian change point detection to identify structural breaks and their association with major geopolitical and economic events. This project provides data-driven insights for investors, policymakers, and energy companies through statistical modeling and interactive visualization.
 
-### Business Objectives
+## 🚀 Quick Start
 
-- 🔍 Identify key events that significantly impacted Brent oil prices (1987-2022)
-- 📊 Quantify the magnitude of price changes using Bayesian statistical methods
-- 💡 Provide actionable insights for investment strategies, policy development, and operational planning
-- 📈 Build an interactive dashboard for stakeholder exploration of results
+```bash
+# Clone repository
+git clone https://github.com/Bekamgenene/bayesian-oil-market-insights.git
+cd bayesian-oil-market-insights
 
----
+# Install dependencies
+pip install -r requirements.txt
+
+# Run interactive dashboard
+streamlit run dashboard/app.py
+```
+
+## 📊 Key Findings
+
+**Detected Change Point:** June 26, 2018 (±1 day uncertainty)
+
+| Metric             | Before     | After      | Change    | Probability   |
+| ------------------ | ---------- | ---------- | --------- | ------------- |
+| **Mean Return**    | -0.000403  | +0.000909  | +0.001312 | 80% increase  |
+| **Volatility (σ)** | 0.021250   | 0.040032   | +0.018782 | 100% increase |
+| **Avg Price**      | $63.06/bbl | $69.33/bbl | +9.95%    | —             |
+
+**Interpretation:** Significant regime shift with increased returns and doubled volatility, indicating fundamental market structure change post-mid-2018.
 
 ## 📁 Project Structure
 
 ```
 bayesian-oil-market-insights/
+├── data/                               # Datasets
+│   ├── BrentOilPrices.csv             # Raw price data (1987-2022)
+│   ├── processed_brent_prices_2014_2022.csv
+│   ├── structured_events.csv          # 15 major events
+│   ├── brent_with_changepoint.csv     # Enhanced with regime indicator
+│   └── changepoint_results.json       # Bayesian model outputs
 │
-├── data/                          # Data files
-│   ├── major_oil_events.csv       # Compiled geopolitical events (16 major events, 2014-2022)
-│   └── BrentOilPrices.csv         # Historical price data (May 1987 - Sep 2022, 9,013 daily prices)
+├── notebooks/                          # Analysis notebooks
+│   ├── task1_exploratory_data_analysis.ipynb
+│   └── task2_bayesian_changepoint_analysis.ipynb
 │
-├── notebooks/                     # Jupyter notebooks for analysis
-│   └── task1_exploratory_data_analysis.ipynb  # Task 1: Comprehensive EDA
+├── dashboard/                          # Streamlit app
+│   ├── app.py                         # Main dashboard (5 pages)
+│   ├── requirements.txt
+│   └── README.md
 │
-├── src/                          # Source code
-│   ├── __init__.py               # Package initialization
-│   ├── data_processing.py        # ✅ Data loading and preprocessing utilities
-│   ├── bayesian_models.py        # PyMC model definitions (Task 2)
-│   └── visualization.py          # Plotting utilities (Task 2)
+├── reports/figures/                    # Generated visualizations
+│   ├── 01_price_series_with_events.png
+│   ├── 04_changepoint_posterior.png
+│   ├── 06_changepoint_visualization.png
+│   └── dashboard/
 │
-├── tests/                        # Unit tests
-│   ├── __init__.py
-│   └── test_data_processing.py   # ✅ Comprehensive unit tests
+├── src/                               # Source code
+│   └── data_processing.py
 │
-├── reports/                      # Generated reports and figures
-│   ├── figures/                  # All visualization outputs (auto-generated)
-│   └── README.md                 # Report documentation
-│
-├── dashboard/                    # Interactive dashboard (Task 3)
-│   ├── backend/                  # Flask API
-│   └── frontend/                 # React application
-│
-├── .github/                      # GitHub Actions workflows
-│   └── workflows/
-│       ├── ci.yml                # ✅ CI/CD pipeline
-│       ├── data-validation.yml   # ✅ Data validation
-│       └── notebook-check.yml    # ✅ Notebook quality checks
-│
-├── documents/                    # Documentation and reports
-│
-├── pytest.ini                    # ✅ Pytest configuration
-├── TESTING.md                    # ✅ Testing guide
-├── Task1_Analysis_Plan.md        # ✅ Task 1: Complete analysis workflow (2 pages)
-├── TASK1_INTERIM_SUBMISSION.md   # ✅ Task 1: Interim submission summary
-├── README.md                     # This file
-└── requirements.txt              # Python dependencies
-```
-
----
-
-## ✅ Task 1: Completed Deliverables (Interim Submission)
-
-### 1. Analysis Workflow Document (1-2 pages) ✓
-
-**File:** [Task1_Analysis_Plan.md](Task1_Analysis_Plan.md)
-
-**Includes:**
-
-- Complete 6-step data analysis workflow with EDA findings
-- Change point model explanation and Bayesian approach justification
-- Time series properties analysis (trend, stationarity, volatility)
-- Expected outputs and model limitations
-- **Critical discussion on correlation vs. causation**
-- Assumptions, limitations, and communication strategy
-
-### 2. Event Dataset (CSV) ✓
-
-**File:** [data/major_oil_events.csv](data/major_oil_events.csv)
-
-**Contains:**
-
-- **16 major events** (2014-2022) covering:
-  - OPEC Policy Decisions (6 events)
-  - Geopolitical Conflicts (5 events)
-  - Economic Sanctions (2 events)
-  - Market Volatility (2 events)
-  - Government Policy (2 events)
-
-**Key Events:**
-
-- 2014 OPEC production decision
+└── tests/                             # Unit tests
+    └── test_data_processing.py
 - 2020 Saudi-Russia price war & COVID crash
 - 2019 Saudi Aramco attacks
 - 2022 Russia-Ukraine invasion
@@ -127,260 +97,206 @@ bayesian-oil-market-insights/
 
 ### Summary Document
 
-**File:** [TASK1_INTERIM_SUBMISSION.md](TASK1_INTERIM_SUBMISSION.md) - Complete overview of all Task 1 deliverables
-
----
+```
 
 ## 🔬 Methodology
 
-### 1. Bayesian Change Point Detection
+### Bayesian Change Point Model
 
-We employ a **Bayesian approach** using PyMC to:
+**Model Specification:**
 
-- Identify structural breaks in oil price time series
-- Estimate uncertainty in change point locations
-- Quantify before/after parameter shifts (mean, volatility)
+- **Switch Point (τ)**: Discrete uniform prior over time indices
+- **Regime Parameters**: Separate means (μ₁, μ₂) and volatilities (σ₁, σ₂)
+- **Likelihood**: Normal distribution with switched parameters
+- **Inference**: MCMC sampling with PyMC (100 draws, 1 chain)
 
-### 2. Event Association Analysis
+**Advantages:**
 
-- Compare detected change points with compiled event timeline
-- Formulate hypotheses about causal mechanisms
-- Acknowledge correlation vs. causation limitations
+- Probabilistic uncertainty quantification
+- No arbitrary threshold selection
+- Natural parameter estimation with credible intervals
 
-### 3. Time Series Property Analysis
+## 🛠️ Technologies
 
-- **Trend Analysis**: Long-term directional movements
-- **Stationarity Testing**: ADF and KPSS tests
-- **Volatility Patterns**: GARCH-style variance clustering
+| Category          | Tools                                |
+| ----------------- | ------------------------------------ |
+| **Modeling**      | PyMC 5.27, ArviZ 0.23, NumPy, Pandas |
+| **Visualization** | Matplotlib, Seaborn, Plotly 5.17     |
+| **Dashboard**     | Streamlit 1.28                       |
+| **Environment**   | Python 3.11, Jupyter                 |
 
----
+## 📈 Dashboard Features
 
-## 📊 Dataset Summary
+Interactive Streamlit application with 5 pages:
 
-### Historical Price Data
+1. **Overview**: Key metrics and change point visualization
+2. **Price Analysis**: Interactive time series with event markers
+3. **Event Analysis**: Timeline of 15 major events (2014-2022)
+4. **Statistical Details**: Posterior distributions and regime comparisons
+5. **About**: Methodology and project documentation
 
-**File:** [data/BrentOilPrices.csv](data/BrentOilPrices.csv)
+**Launch:** `streamlit run dashboard/app.py`
 
-- **Records:** 9,011 daily prices
-- **Period:** May 20, 1987 - November 14, 2022 (35+ years)
-- **Price Range:** ~$9 to ~$147 per barrel
-- **Format:** Date, Price (USD/barrel)
+## 📊 Analysis Highlights
 
-### Major Events Dataset (2014-2022)
+### Task 1: Exploratory Data Analysis
 
-**File:** [data/major_oil_events.csv](data/major_oil_events.csv)
+- 2,258 price observations (2014-2022 focus period)
+- 15 structured events (OPEC decisions, geopolitical conflicts, economic shocks)
+- Volatility clustering detection
+- 6 comprehensive visualizations
 
-Our research identified **16 critical events** across four categories:
+### Task 2: Bayesian Change Point Detection
 
-| Category                   | Count | Examples                                                                             |
-| -------------------------- | ----- | ------------------------------------------------------------------------------------ |
-| **Geopolitical Conflicts** | 4     | ISIL Iraq Offensive (2014), Saudi Aramco Attack (2019), Russia-Ukraine War (2022)    |
-| **OPEC Policy**            | 6     | Production cuts (2016), Saudi-Russia price war (2020), Historic COVID-19 cuts (2020) |
-| **Economic Sanctions**     | 1     | US Iran sanctions (2018)                                                             |
-| **Market Volatility**      | 5     | Negative oil prices (2020), Price peaks (2018, 2022)                                 |
+- Single structural break detected: **June 26, 2018**
+- Convergence validated (r_hat ≈ 1.0)
+- 95% credible intervals for all parameters
+- Posterior predictive checks confirm model fit
+- 7 statistical visualizations
 
----
+### Task 3: Interactive Dashboard
 
-## 🛠️ Technologies Used
+- Real-time data filtering (date range, event types)
+- 6+ interactive Plotly charts
+- Metric cards with key statistics
+- Professional UI with custom CSS
+- Deployment-ready architecture
 
-### Analysis & Modeling
+## 📁 Key Files
 
-- **Python 3.8+**: Core programming language
-- **PyMC**: Bayesian inference and MCMC sampling
-- **Pandas & NumPy**: Data manipulation
-- **Matplotlib, Seaborn, Plotly**: Visualization
-- **Statsmodels**: Time series analysis (ADF test, ACF/PACF)
+| File                                                                                             | Description                        |
+| ------------------------------------------------------------------------------------------------ | ---------------------------------- |
+| [task1_exploratory_data_analysis.ipynb](notebooks/task1_exploratory_data_analysis.ipynb)         | Complete EDA with 6 visualizations |
+| [task2_bayesian_changepoint_analysis.ipynb](notebooks/task2_bayesian_changepoint_analysis.ipynb) | Bayesian modeling (35 cells)       |
+| [dashboard/app.py](dashboard/app.py)                                                             | Streamlit dashboard (700+ lines)   |
+| [data/changepoint_results.json](data/changepoint_results.json)                                   | Model outputs and statistics       |
+| [data/structured_events.csv](data/structured_events.csv)                                         | Curated event dataset              |
 
-### Dashboard Development
+## 🚀 Usage
 
-- **Backend**: Flask (REST API)
-- **Frontend**: React.js
-- **Charts**: Recharts / React Chart.js 2
-- **Deployment**: TBD
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-```bash
-Python 3.8 or higher
-pip package manager
-Git
-```
-
-### Installation
-
-1. **Clone the repository**
+### Run Analysis Notebooks
 
 ```bash
-git clone https://github.com/Bekamgenene/bayesian-oil-market-insights.git
-cd bayesian-oil-market-insights
+# Activate environment
+source .venv/bin/activate  # Windows: .venv\Scripts\Activate.ps1
+
+# Launch Jupyter
+jupyter notebook notebooks/
+
+# Run cells in order:
+# 1. task1_exploratory_data_analysis.ipynb
+# 2. task2_bayesian_changepoint_analysis.ipynb
 ```
 
-2. **Create virtual environment** (recommended)
+### Launch Dashboard
 
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
-
-3. **Install dependencies** (after requirements.txt is created)
+````bash
+streamlit run dashboard/app.py
+# Opens at http://localhost:8501
 
 ```bash
 pip install -r requirements.txt
-```
+````
 
 4. **Verify data files**
 
 - ✅ `data/BrentOilPrices.csv` - 9,011 daily prices (May 20, 1987 - Nov 14, 2022)
 - ✅ `data/major_oil_events.csv` - 16 major events (2014-2022)
 
-### Running the Analysis
+````
+
+## 🧪 Testing
 
 ```bash
-# Launch Jupyter Notebook
-jupyter notebook
+# Run unit tests
+pytest tests/
 
-# Navigate to notebooks/ folder and run in sequence:
-# 1. 01_EDA.ipynb
-# 2. 02_Bayesian_Change_Point.ipynb
-# 3. 03_Event_Association.ipynb
-```
+# Test coverage
+pytest --cov=src tests/
+````
 
----
+## 📊 Results & Insights
 
-## 📈 Key Findings (To Be Updated)
+### Statistical Significance
 
-_This section will be populated after completing Task 2 analysis_
+- **Change Point Certainty**: ±1 day uncertainty (highly precise)
+- **Mean Shift**: 80% posterior probability of positive shift
+- **Volatility Shift**: 100% posterior probability of increase
+- **Model Convergence**: All parameters r_hat ≈ 1.0 (excellent)
 
-### Detected Change Points
+### Business Implications
 
-- TBD
+1. **Risk Management**: Volatility doubled post-2018, requiring adjusted hedging strategies
+2. **Investment Timing**: Regime shift suggests fundamental market structure change
+3. **Policy Context**: No single event within ±60 days, indicating systemic transition
 
-### Quantified Impacts
+### Limitations
 
-- TBD
+- Single change point model (may oversimplify complex dynamics)
+- Association ≠ causation (temporal correlation only)
+- External factors not modeled (inventory, USD strength, macroeconomic conditions)
 
-### Event Associations
+## 📈 Visualization Gallery
 
-- TBD
+**Task 1 (EDA - 6 Figures)**
 
----
+- Price series with events
+- Moving averages and volatility
+- Log returns analysis
+- Autocorrelation patterns
 
-## 📝 Documentation
+**Task 2 (Bayesian - 7 Figures)**
 
-- **Task 1 Analysis Plan**: [Task1_Analysis_Plan.md](Task1_Analysis_Plan.md)
-  - Analysis workflow (6 phases)
-  - Change point model explanation
-  - Assumptions and limitations
-  - Communication strategy
-  - Event dataset overview
+- Trace plots (MCMC diagnostics)
+- Changepoint posterior distribution
+- Parameter posteriors (before/after comparison)
+- Change point visualization on price series
+- Posterior predictive checks
 
----
+**Task 3 (Dashboard - 6+ Charts)**
 
-## 🎓 Learning Outcomes
+- Interactive price chart with event markers
+- Log returns with regime means
+- Event timeline
+- Regime comparison tables
+- Probability distributions
 
-This project develops expertise in:
+## 🔗 Resources
 
-- ✅ **Change Point Analysis & Interpretation**
-- ✅ **Bayesian Inference** (PyMC framework)
-- ✅ **Monte Carlo Markov Chain (MCMC)** methods
-- ✅ **Statistical Reasoning** and model comparison
-- ✅ **Analytical Storytelling** with data
-- ✅ **Policy Analysis** communication
+**Documentation:**
 
----
+- [Dashboard User Guide](dashboard/README.md)
+- [Bayesian Quick Reference](documents/Bayesian_Change_Point_Quick_Reference.md)
 
-## 📅 Project Timeline
+**Notebooks:**
 
-| Phase                             | Dates         | Status            |
-| --------------------------------- | ------------- | ----------------- |
-| **Task 1**: Foundation & Planning | Feb 4-5, 2026 | ✅ Completed      |
-| **Task 2**: Bayesian Modeling     | Feb 6-7, 2026 | 🚀 Ready to Start |
-| **Task 3**: Dashboard Development | Feb 8-9, 2026 | ⏳ Pending        |
-| **Final Report & Submission**     | Feb 10, 2026  | ⏳ Pending        |
+- [Task 1: EDA](notebooks/task1_exploratory_data_analysis.ipynb)
+- [Task 2: Bayesian Analysis](notebooks/task2_bayesian_changepoint_analysis.ipynb)
 
----
+**Data Sources:**
 
-## 👥 Team & Support
+- U.S. Energy Information Administration (EIA)
+- OPEC Monthly Oil Market Reports
+- Reuters, Bloomberg (event data)
 
-**Organization**: Birhan Energies  
-**Program**: 10 Academy - AI Mastery Week 11
+## 👥 Credits
 
-**Tutors**:
-
-- Kerod
-- Filimon
-- Mahbubah
-
-**Communication**:
-
-- Slack: `#all-week11`
-- Office Hours: Mon–Fri, 08:00–15:00 UTC
-
----
-
-## ⚠️ Important Notes
-
-### Correlation vs. Causation
-
-This analysis identifies **temporal correlations** between events and price changes. While we propose plausible causal mechanisms using economic reasoning, we **cannot definitively prove causation** due to:
-
-- Confounding factors
-- Omitted variables
-- Reverse causality
-- Potential spurious correlations
-
-All findings are presented as "consistent with" or "suggestive of" rather than "proves."
-
-### Model Limitations
-
-- Assumes normal distribution of returns
-- Single change point in basic model (can be extended)
-- Instantaneous parameter shifts
-- Daily data frequency may miss intraday dynamics
-
----
-
-## 📚 References
-
-### Change Point Analysis
-
-- [Bayesian Changepoint Detection with PyMC](https://www.pymc.io/)
-- [Change Point Detection in Time Series](https://forecastegy.com/posts/change-point-detection-time-series-python/)
-
-### Bayesian Methods
-
-- [MCMC Explained](https://towardsdatascience.com/monte-carlo-markov-chain-mcmc-explained-94e3a6c8de11)
-- Steel, M. F. J. "Bayesian Time Series Analysis"
-
-### Oil Market Data
-
-- [EIA - Brent Crude Oil Prices](https://www.eia.gov/)
-- [OPEC Monthly Oil Market Reports](https://www.opec.org/)
-
----
+**Developer:** Bekam Genene  
+**Organization:** Birhan Energies  
+**Program:** 10 Academy AI Mastery - Week 11  
+**Tutors:** Kerod, Filimon, Mahbubah
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
-
----
-
-## 🤝 Contributing
-
-This is an educational project for 10 Academy's AI Mastery program. Contributions, suggestions, and feedback are welcome!
-
----
+MIT License - See [LICENSE](LICENSE) file
 
 ## 📧 Contact
 
-**Developer**: Bekam Genene  
-**GitHub**: [@Bekamgenene](https://github.com/Bekamgenene)  
-**Project Repository**: [bayesian-oil-market-insights](https://github.com/Bekamgenene/bayesian-oil-market-insights)
+**GitHub:** [@Bekamgenene](https://github.com/Bekamgenene)  
+**Repository:** [bayesian-oil-market-insights](https://github.com/Bekamgenene/bayesian-oil-market-insights)
 
 ---
 
-_Last Updated: February 5, 2026_
+⭐ **Star this repo** if you find it useful for Bayesian time series analysis!
+
+_Last Updated: February 10, 2026_
