@@ -22,6 +22,7 @@ python app.py
 ```
 
 **Expected output:**
+
 ```
  * Running on http://127.0.0.1:5000
  * Data loaded successfully
@@ -36,6 +37,7 @@ npm start
 ```
 
 **Expected output:**
+
 ```
 Compiled successfully!
 Local:            http://localhost:3000
@@ -83,29 +85,34 @@ curl http://localhost:5000/api/event-types
 Visit http://localhost:3000 and test:
 
 #### Overview Tab
+
 - [ ] Metric cards display changepoint date, mean shift, volatility shift, price impact
 - [ ] Price chart renders with blue line
 - [ ] Red changepoint line appears on chart
 - [ ] Insight box shows interpretation text
 
 #### Price Analysis Tab
+
 - [ ] Detailed price chart displays
 - [ ] Changepoint marker visible
 - [ ] Regime comparison section shows before/after stats
 - [ ] Chart is responsive
 
 #### Events Tab
+
 - [ ] Event timeline/scatter chart displays
 - [ ] Event table shows all events with dates, types, descriptions
 - [ ] Event badges have colors (green=OPEC, red=Geopolitical, orange=Economic)
 - [ ] Table is scrollable
 
 #### Statistics Tab
+
 - [ ] All 8 metric cards display (changepoint, mean shift, volatility shift, price impact, before/after prices, before/after volatilities)
 - [ ] Values match Bayesian results
 - [ ] Warning box about limitations displays
 
 #### Sidebar Filters
+
 - [ ] Date pickers open and allow selection
 - [ ] Start/End date filtering works
 - [ ] Event type checkboxes toggle
@@ -134,14 +141,17 @@ Use browser DevTools (F12) → Device toolbar to test.
 ### 5. Error Handling Tests
 
 #### Backend Errors
+
 1. Stop Flask server → Frontend should show error message
 2. Restart Flask → Frontend should recover
 
 #### Invalid Filters
+
 1. Set end date before start date → Should handle gracefully
 2. Set dates outside dataset range → Should return empty data or error
 
 #### CORS Test
+
 Open browser console (F12) → Network tab → Look for CORS errors (should be none)
 
 ### 6. Performance Tests
@@ -153,14 +163,14 @@ Open browser console (F12) → Network tab → Look for CORS errors (should be n
 
 ## 🐛 Common Issues
 
-| Issue | Solution |
-|-------|----------|
-| Backend won't start | Check if port 5000 is in use: `netstat -ano \| findstr :5000` |
-| Frontend won't start | Check if port 3000 is in use, clear npm cache: `npm cache clean --force` |
-| CORS errors | Ensure `flask-cors` is installed: `pip install flask-cors` |
-| "Cannot GET /api/..." | Backend not running or wrong URL |
-| Blank page | Check browser console for errors, ensure backend is running |
-| Charts don't display | Check data files exist, backend returns data, Recharts installed |
+| Issue                 | Solution                                                                 |
+| --------------------- | ------------------------------------------------------------------------ |
+| Backend won't start   | Check if port 5000 is in use: `netstat -ano \| findstr :5000`            |
+| Frontend won't start  | Check if port 3000 is in use, clear npm cache: `npm cache clean --force` |
+| CORS errors           | Ensure `flask-cors` is installed: `pip install flask-cors`               |
+| "Cannot GET /api/..." | Backend not running or wrong URL                                         |
+| Blank page            | Check browser console for errors, ensure backend is running              |
+| Charts don't display  | Check data files exist, backend returns data, Recharts installed         |
 
 ## 📸 Screenshots
 
@@ -175,6 +185,7 @@ Take screenshots for documentation:
 Save to: `reports/figures/dashboard/`
 
 Naming convention:
+
 - `dashboard_overview.png`
 - `dashboard_price_analysis.png`
 - `dashboard_events.png`
@@ -236,6 +247,7 @@ Overall Status: [ ] PASS  [ ] FAIL
 ## 📞 Support
 
 If tests fail, check:
+
 1. [dashboard/SETUP.md](SETUP.md) - Setup instructions
 2. [dashboard/backend/README.md](backend/README.md) - API documentation
 3. Browser console (F12) for JavaScript errors
