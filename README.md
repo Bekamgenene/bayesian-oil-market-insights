@@ -66,38 +66,30 @@ bayesian-oil-market-insights/
 ├── src/                               # Source code
 │   └── data_processing.py
 │
-└── tests/                             # Unit tests
-    └── test_data_processing.py
-- 2020 Saudi-Russia price war & COVID crash
-- 2019 Saudi Aramco attacks
-- 2022 Russia-Ukraine invasion
-- US-Iran sanctions
-
-### 3. Comprehensive EDA Notebook ✓
-
-**File:** [notebooks/task1_exploratory_data_analysis.ipynb](notebooks/task1_exploratory_data_analysis.ipynb)
-
-**Analysis Includes:**
-
-- ✓ Data loading and preparation (9,013 daily prices)
-- ✓ Visual inspection with event annotations
-- ✓ Trend analysis (30/90/365-day moving averages)
-- ✓ **Stationarity testing (ADF):** Raw prices NON-STATIONARY, Log returns STATIONARY
-- ✓ **Volatility analysis:** Strong volatility clustering detected
-- ✓ **Distributional analysis:** Heavy tails confirmed (high kurtosis)
-- ✓ Autocorrelation analysis (ACF/PACF)
-- ✓ Focused analysis on 2014-2022 period
-
-**Key Findings:**
-
-- Price range: $9.10 - $143.95/barrel
-- Multiple regime shifts identified
-- Log returns suitable for Bayesian modeling
-- Must model both mean (μ) and variance (σ) changes
-
-### Summary Document
-
+├── reports/                      # Generated reports and figures
+│   ├── figures/                  # All visualization outputs (auto-generated)
+│   └── README.md                 # Report documentation
+│
+├── dashboard/                    # Interactive dashboard (Task 3)
+│   ├── backend/                  # Flask API
+│   └── frontend/                 # React application
+│
+├── .github/                      # GitHub Actions workflows
+│   └── workflows/
+│       ├── ci.yml                # ✅ CI/CD pipeline
+│       ├── data-validation.yml   # ✅ Data validation
+│       └── notebook-check.yml    # ✅ Notebook quality checks
+│
+├── documents/                    # Documentation and reports
+│
+├── pytest.ini                    # ✅ Pytest configuration
+├── TESTING.md                    # ✅ Testing guide
+├── Task1_Analysis_Plan.md        # ✅ Task 1: Complete analysis workflow (2 pages)
+├── TASK1_INTERIM_SUBMISSION.md   # ✅ Task 1: Interim submission summary
+├── README.md                     # This file
+└── requirements.txt              # Python dependencies
 ```
+
 
 ## 🔬 Methodology
 
@@ -203,7 +195,40 @@ pip install -r requirements.txt
 - ✅ `data/BrentOilPrices.csv` - 9,011 daily prices (May 20, 1987 - Nov 14, 2022)
 - ✅ `data/major_oil_events.csv` - 16 major events (2014-2022)
 
-````
+### Running the Analysis
+
+```bash
+# Launch Jupyter Notebook
+jupyter notebook
+
+# Navigate to notebooks/ folder and run in sequence:
+# 1. 01_EDA.ipynb
+# 2. 02_Bayesian_Change_Point.ipynb
+# 3. 03_Event_Association.ipynb
+```
+
+---
+
+## 📈 Key Findings (To Be Updated)
+
+_This section will be populated after completing Task 2 analysis_
+
+### Detected Change Points
+
+- TBD
+
+### Quantified Impacts
+
+- TBD
+
+### Event Associations
+
+- TBD
+
+
+## 🎓 Learning Outcomes
+
+This project develops expertise in:
 
 ## 🧪 Testing
 
@@ -297,6 +322,3 @@ MIT License - See [LICENSE](LICENSE) file
 
 ---
 
-⭐ **Star this repo** if you find it useful for Bayesian time series analysis!
-
-_Last Updated: February 10, 2026_
