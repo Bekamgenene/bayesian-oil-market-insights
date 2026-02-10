@@ -1,0 +1,16 @@
+{
+  "change_point_date": "2018-06-26",
+  "change_point_index": 1140,
+  "change_point_uncertainty_days": 1.019803902718557,
+  "mu_before": -0.00040346974880845784,
+  "mu_after": 0.0009090241412780965,
+  "sigma_before": 0.021249801170435265,
+  "sigma_after": 0.040031667230337006,
+  "mean_change": 0.0013124938900865542,
+  "volatility_change": 0.018781866059901748,
+  "price_before": 63.056868421052634,
+  "price_after": 69.32927549194991,
+  "price_change_pct": 9.947222607082606,
+  "prob_mean_increase": 0.8,
+  "prob_volatility_increase": 1.0
+}
