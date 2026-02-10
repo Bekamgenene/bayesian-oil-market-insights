@@ -4,12 +4,13 @@
 
 ![Python](https://img.shields.io/badge/python-3.11-blue.svg)
 ![PyMC](https://img.shields.io/badge/PyMC-5.27-orange.svg)
-![Streamlit](https://img.shields.io/badge/Streamlit-1.28-red.svg)
+![Flask](https://img.shields.io/badge/Flask-3.0-black.svg)
+![React](https://img.shields.io/badge/React-18.2-61dafb.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 
 ## 🎯 Overview
 
-Probabilistic analysis of Brent oil prices using Bayesian change point detection to identify structural breaks and their association with major geopolitical and economic events. This project provides data-driven insights for investors, policymakers, and energy companies through statistical modeling and interactive visualization.
+Probabilistic analysis of Brent oil prices using Bayesian change point detection to identify structural breaks and their association with major geopolitical and economic events. This project features a modern Flask REST API backend with React frontend dashboard, providing data-driven insights for investors, policymakers, and energy companies.
 
 ## 🚀 Quick Start
 
@@ -18,12 +19,20 @@ Probabilistic analysis of Brent oil prices using Bayesian change point detection
 git clone https://github.com/Bekamgenene/bayesian-oil-market-insights.git
 cd bayesian-oil-market-insights
 
-# Install dependencies
+# Backend setup
+cd dashboard/backend
 pip install -r requirements.txt
+python app.py
 
-# Run interactive dashboard
-streamlit run dashboard/app.py
+# Frontend setup (new terminal)
+cd dashboard/frontend
+npm install
+npm start
+
+# Access dashboard at http://localhost:3000
 ```
+
+📘 **Detailed setup instructions**: See [dashboard/SETUP.md](dashboard/SETUP.md)
 
 ## 📊 Key Findings
 
@@ -52,10 +61,20 @@ bayesian-oil-market-insights/
 │   ├── task1_exploratory_data_analysis.ipynb
 │   └── task2_bayesian_changepoint_analysis.ipynb
 │
-├── dashboard/                          # Streamlit app
-│   ├── app.py                         # Main dashboard (5 pages)
-│   ├── requirements.txt
-│   └── README.md
+├── dashboard/                          # Web application
+│   ├── backend/                       # Flask REST API
+│   │   ├── app.py                     # API server (7 endpoints)
+│   │   ├── requirements.txt
+│   │   └── README.md                  # API documentation
+│   ├── frontend/                      # React SPA
+│   │   ├── src/
+│   │   │   ├── components/            # React components
+│   │   │   ├── services/api.js        # API client
+│   │   │   ├── App.js                 # Main application
+│   │   │   └── App.css                # Styling
+│   │   ├── public/
+│   │   └── package.json
+│   └── SETUP.md                       # Setup guide
 │
 ├── reports/figures/                    # Generated visualizations
 │   ├── 01_price_series_with_events.png
@@ -121,21 +140,33 @@ bayesian-oil-market-insights/
 | Category          | Tools                                |
 | ----------------- | ------------------------------------ |
 | **Modeling**      | PyMC 5.27, ArviZ 0.23, NumPy, Pandas |
-| **Visualization** | Matplotlib, Seaborn, Plotly 5.17     |
-| **Dashboard**     | Streamlit 1.28                       |
-| **Environment**   | Python 3.11, Jupyter                 |
+| **Visualization** | Matplotlib, Seaborn, Recharts        |
+| **Backend**       | Flask 3.0, Flask-CORS                |
+| **Frontend**      | React 18.2, Axios, React-DatePicker  |
+| **Environment**   | Python 3.11, Node.js 14+, Jupyter    |
 
-## 📈 Dashboard Features
+## 📈 Dashboard Architecture
 
-Interactive Streamlit application with 5 pages:
+Modern **Flask + React** architecture with REST API:
 
-1. **Overview**: Key metrics and change point visualization
-2. **Price Analysis**: Interactive time series with event markers
-3. **Event Analysis**: Timeline of 15 major events (2014-2022)
-4. **Statistical Details**: Posterior distributions and regime comparisons
-5. **About**: Methodology and project documentation
+### Backend (Flask)
 
-**Launch:** `streamlit run dashboard/app.py`
+- 7 REST API endpoints with query parameter filtering
+- CORS-enabled for cross-origin requests
+- JSON responses with error handling
+- Serves processed CSV data and Bayesian results
+
+### Frontend (React)
+
+- 4 interactive tabs: Overview, Price Analysis, Events, Statistics
+- Responsive design (mobile/tablet/desktop)
+- Real-time filtering by date range and event types
+- Recharts visualizations with changepoint markers
+- Component-based architecture
+
+**Setup Guide**: [dashboard/SETUP.md](dashboard/SETUP.md)
+
+**API Documentation**: [dashboard/backend/README.md](dashboard/backend/README.md)
 
 ## 📊 Analysis Highlights
 
@@ -156,11 +187,13 @@ Interactive Streamlit application with 5 pages:
 
 ### Task 3: Interactive Dashboard
 
+- Flask REST API with 7 endpoints
+- React SPA with 4 responsive tabs
 - Real-time data filtering (date range, event types)
-- 6+ interactive Plotly charts
-- Metric cards with key statistics
+- 8+ interactive Recharts visualizations
+- Metric cards with Bayesian statistics
 - Professional UI with custom CSS
-- Deployment-ready architecture
+- Production-ready architecture
 
 ## 📁 Key Files
 
@@ -168,7 +201,9 @@ Interactive Streamlit application with 5 pages:
 | ------------------------------------------------------------------------------------------------ | ---------------------------------- |
 | [task1_exploratory_data_analysis.ipynb](notebooks/task1_exploratory_data_analysis.ipynb)         | Complete EDA with 6 visualizations |
 | [task2_bayesian_changepoint_analysis.ipynb](notebooks/task2_bayesian_changepoint_analysis.ipynb) | Bayesian modeling (35 cells)       |
-| [dashboard/app.py](dashboard/app.py)                                                             | Streamlit dashboard (700+ lines)   |
+| [dashboard/backend/app.py](dashboard/backend/app.py)                                             | Flask REST API (7 endpoints)       |
+| [dashboard/frontend/src/App.js](dashboard/frontend/src/App.js)                                   | React application (4 tabs)         |
+| [dashboard/SETUP.md](dashboard/SETUP.md)                                                         | Complete setup instructions        |
 | [data/changepoint_results.json](data/changepoint_results.json)                                   | Model outputs and statistics       |
 | [data/structured_events.csv](data/structured_events.csv)                                         | Curated event dataset              |
 
